@@ -1,0 +1,103 @@
+# ================================
+# Python / FastAPI Backend
+# ================================
+
+# Virtual environments
+backend/venv/
+backend/.venv/
+backend/env/
+backend/.env.local
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment variables
+.env
+*.env
+
+# Database
+*.db
+*.sqlite3
+
+# Alembic
+# (keep alembic/versions but ignore auto-generated if needed)
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# MyPy / Pyright / Pyrefly
+.mypy_cache/
+.pyright/
+
+# Logs
+*.log
+
+# ================================
+# Node.js / React Frontend
+# ================================
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+frontend/dist-ssr/
+frontend/.cache/
+
+# Local env files
+frontend/.env.local
+frontend/.env.*.local
+
+# npm / yarn / pnpm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Vite / local files
+*.local
+
+# ================================
+# Editors & IDEs
+# ================================
+
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ================================
+# OS Files
+# ================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ================================
+# Misc
+# ================================
+
+*.bak
+*.tmp
+*.swp
