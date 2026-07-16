@@ -1,18 +1,14 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
-from fastapi import Request
-from starlette.responses import RedirectResponse
-from app.schemas.auth import (ForgotPasswordRequest, ResetPasswordRequest)
-from app.core.jwt import ( create_reset_token, verify_reset_token)
+from app.schemas.auth import ForgotPasswordRequest, ResetPasswordRequest, LoginRequest
+from app.core.jwt import create_reset_token, verify_reset_token, create_access_token, create_refresh_token
 from app.services.email import send_reset_email
 
 from app.models.user import User
 from app.schemas.user import UserCreate, UserResponse
-from app.core.security import hash_password
+from app.core.security import hash_password, verify_password
 from app.dependencies import get_db
-from app.schemas.auth import LoginRequest
-from app.core.jwt import create_access_token,create_refresh_token
-from app.core.security import verify_password
 from app.dependencies.auth import get_current_user
 from app.core.oauth import oauth
 
@@ -85,7 +81,8 @@ def login(user: LoginRequest, db: Session = Depends(get_db)):
     return {
         "access_token": access_token,
         "refresh_token": refresh_token,
-        "token_type": "bearer"
+        "token_type": "bearer",
+        "role": existing_user.role
     }
 
 @router.get("/profile")
@@ -94,7 +91,15 @@ def get_profile(
 ):
     return {
         "message": "Protected Route Accessed",
-        "user": current_user
+        "user": {
+            "id": current_user.id,
+            "name": current_user.name,
+            "email": current_user.email,
+            "role": current_user.role,
+            "target_companies": current_user.target_companies,
+            "interview_types": current_user.interview_types,
+            "created_at": current_user.created_at.isoformat() if current_user.created_at else None,
+        }
     }
 
 @router.get("/google/login")
@@ -148,14 +153,9 @@ async def google_callback(
         }
     )
 
-    return {
-        "message": "Google Login Success",
-        "access_token": access_token,
-        "user": {
-            "name": existing_user.name,
-            "email": existing_user.email
-        }
-    }  
+    return RedirectResponse(
+    url=f"http://localhost:5173/google-success?token={access_token}"
+)  
 
 @router.get("/test-email")
 async def test_email():
@@ -186,7 +186,7 @@ async def forgot_password(
     print("Token generated")
 
     reset_link = (
-        f"http://localhost:3000/reset-password?token={token}"
+        f"http://localhost:5173/reset-password?token={token}"
     )
     print("Reset link:", reset_link)
 
@@ -233,4 +233,40 @@ def reset_password(
 
     return {
         "message": "Password reset successful"
+    }
+
+@router.put("/profile/update")
+def update_profile(
+    data: dict,
+    current_user = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    user = db.query(User).filter(
+        User.id == current_user.id
+    ).first()
+
+    user.name = data.get(
+        "name",
+        user.name
+    )
+
+    user.target_companies = ",".join(
+        data.get("target_companies", [])
+    )
+
+    user.interview_types = ",".join(
+        data.get("interview_types", [])
+    )
+
+    db.commit()
+
+    return {
+        "message": "Profile updated successfully",
+        "user": {
+            "id": user.id,
+            "name": user.name,
+            "email": user.email,
+            "target_companies": user.target_companies,
+            "interview_types": user.interview_types
+        }
     }

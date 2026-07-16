@@ -1,9 +1,27 @@
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
+# pyrefly: ignore [missing-import]
 from sqlalchemy import pool
 
 from alembic import context
+from app.database import Base
+from app.models.user import User
+from app.models.profile import Profile
+from app.models.company import Company
+from app.models.topic import Topic
+from app.models.difficulty_level import DifficultyLevel
+from app.models.question_type import QuestionType
+from app.models.question import Question
+from app.models.bookmark import Bookmark
+from app.models.resume import Resume
+from app.models.audit_log import AuditLog
+from app.models.resume_analysis import ResumeAnalysis
+from app.models.ai_interview_session import AIInterviewSession
+from app.models.ai_interview_answer import AIInterviewAnswer
+from app.models.ai_interview_feedback import AIInterviewFeedback
+from app.models.ai_interview_answer_feedback import AIInterviewAnswerFeedback
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -18,7 +36,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

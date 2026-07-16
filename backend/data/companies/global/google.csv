@@ -1,0 +1,100 @@
+Company,QuestionType,Topic,Difficulty,Title,Description,Answer,TimeComplexity,SpaceComplexity,InterviewTip
+Google,Technical,Arrays,Easy,Two Sum,Find two numbers in an array whose sum equals a target value.,Use a HashMap to store previously seen numbers and check whether the complement exists while iterating through the array.,O(n),O(n),Explain the brute-force O(n²) solution first before optimizing with a HashMap.
+
+Google,Technical,Strings,Easy,Valid Anagram,Determine whether two strings are anagrams of each other.,Count character frequencies using a HashMap or sort both strings and compare them.,O(n),O(1),Mention both sorting and frequency-count approaches.
+
+Google,Technical,Strings,Medium,Longest Substring Without Repeating Characters,Find the length of the longest substring without duplicate characters.,Use the Sliding Window technique with a HashMap to track the latest index of each character.,O(n),O(n),Explain why the window moves instead of restarting.
+
+Google,Technical,Arrays,Medium,Product of Array Except Self,Return an array where each element equals the product of all other elements.,Compute prefix and suffix products without using division.,O(n),O(1),Mention why division is not allowed.
+
+Google,Technical,Binary Search,Medium,Binary Search,Search for a target element in a sorted array.,Repeatedly divide the search space into halves until the target is found.,O(log n),O(1),Always mention the array must be sorted.
+
+Google,Technical,Linked List,Easy,Reverse Linked List,Reverse a singly linked list.,Iteratively reverse pointers using previous current and next pointers.,O(n),O(1),Explain both iterative and recursive approaches.
+
+Google,Technical,Trees,Medium,Maximum Depth of Binary Tree,Find the maximum depth of a binary tree.,Use recursive DFS or iterative BFS to calculate tree depth.,O(n),O(h),Explain why DFS naturally computes height.
+
+Google,Technical,Graphs,Medium,Number of Islands,Count the number of islands in a grid.,Use DFS or BFS to traverse connected land cells and mark them visited.,O(m×n),O(m×n),Discuss both DFS and BFS solutions.
+
+Google,Technical,Dynamic Programming,Medium,Climbing Stairs,Count the number of distinct ways to reach the top of a staircase.,Recognize the Fibonacci pattern and use dynamic programming.,O(n),O(1),Explain recursive solution before optimizing.
+
+Google,Technical,Hashing,Medium,Group Anagrams,Group words that are anagrams of each other.,Use sorted strings or character frequency as the HashMap key.,O(n×k log k),O(n),Explain why identical sorted strings belong to the same group.
+
+Google,Technical,Stack,Medium,Min Stack,Design a stack that supports retrieving the minimum element in constant time.,Maintain an additional stack that keeps track of the minimum value.,O(1),O(n),Mention why an auxiliary stack is needed.
+
+Google,Technical,Queue,Medium,Implement Queue using Stacks,Implement a queue using two stacks.,Use one stack for enqueue and another for dequeue operations.,Amortized O(1),O(n),Explain lazy transfer between stacks.
+
+Google,Technical,Heap,Medium,Kth Largest Element in an Array,Find the kth largest element in an unsorted array.,Use a min heap of size k or QuickSelect.,O(n log k),O(k),Mention both Heap and QuickSelect approaches.
+
+Google,Technical,Trie,Medium,Implement Trie,Design a Trie supporting insert search and startsWith.,Store characters in Trie nodes with child pointers.,O(L),O(L),Explain why Trie is efficient for prefix searches.
+
+Google,Technical,Greedy,Medium,Jump Game,Determine whether you can reach the last index.,Track the farthest reachable index while traversing the array.,O(n),O(1),Explain why greedy works.
+
+Google,Technical,Recursion,Easy,Fibonacci Number,Return the nth Fibonacci number.,Use recursion with memoization or iterative dynamic programming.,O(n),O(1),Mention why naive recursion is exponential.
+
+Google,Technical,Bit Manipulation,Easy,Single Number,Find the element that appears only once.,Use XOR to cancel duplicate values.,O(n),O(1),Explain XOR properties.
+
+Google,Technical,SQL,Medium,Second Highest Salary,Write an SQL query to find the second highest salary.,Use ORDER BY with LIMIT/OFFSET or a subquery using MAX.,O(n log n),O(1),Mention handling duplicate salaries.
+
+Google,Technical,OOPS,Medium,Factory Design Pattern,Explain the Factory Design Pattern.,Describe how object creation is delegated to subclasses or factory methods.,N/A,N/A,Give a real-world example.
+
+Google,Technical,System Design,Hard,Design YouTube,Design a scalable video streaming platform similar to YouTube.,Discuss storage encoding CDN load balancing caching and recommendation architecture.,N/A,N/A,Focus on scalability and trade-offs.
+
+Google,HR,HR,Easy,Tell me about yourself,Introduce yourself professionally.,Start with your education then discuss relevant projects internship technical skills achievements and conclude with why you are excited to join Google.,N/A,N/A,Keep your answer under two minutes and tailor it to the Software Engineer role.
+
+Google,HR,HR,Easy,Why do you want to work at Google?,Explain your motivation for joining Google.,Discuss Google's innovation engineering culture learning opportunities global impact and how your skills align with its mission.,N/A,N/A,Do not say salary is the main reason.
+
+Google,HR,HR,Easy,What are your strengths?,Describe your biggest strengths.,Highlight problem solving adaptability continuous learning teamwork and communication with real examples.,N/A,N/A,Support every strength with an example.
+
+Google,HR,HR,Easy,What is your biggest weakness?,Discuss a genuine weakness.,Mention a real weakness explain how you recognized it and what you are doing to improve it.,N/A,N/A,Never say you have no weaknesses.
+
+Google,HR,Communication,Medium,Describe yourself in three words.,Choose three words that best describe your personality.,Select positive qualities like Curious Adaptable and Responsible and justify each with an example.,N/A,N/A,Keep your examples concise.
+
+Google,HR,Leadership,Medium,Tell me about a time you showed leadership.,Describe a leadership experience.,Use the STAR method to explain how you motivated a team solved a problem and achieved success.,N/A,N/A,Always structure behavioral answers using STAR.
+
+Google,HR,Teamwork,Medium,Describe a challenging team project.,Explain how you handled teamwork challenges.,Discuss communication collaboration conflict resolution and successful delivery.,N/A,N/A,Focus on your contribution rather than blaming teammates.
+
+Google,HR,Communication,Easy,How do you handle constructive criticism?,Explain your approach to feedback.,Describe how you actively listen accept feedback improve yourself and apply lessons learned.,N/A,N/A,Show a growth mindset.
+
+Google,HR,HR,Medium,Where do you see yourself in five years?,Discuss your career goals.,Talk about becoming a skilled engineer taking ownership of impactful projects mentoring others and continuous learning.,N/A,N/A,Align your goals with Google's growth opportunities.
+
+Google,HR,HR,Easy,Why should we hire you?,Explain why you are the right candidate.,Combine your technical skills internship experience problem solving mindset and enthusiasm for learning into one compelling answer.,N/A,N/A,End with confidence but avoid sounding arrogant.
+
+Google,Behavioral,Leadership,Medium,Tell me about a time you led a team,Describe a situation where you took leadership responsibility.,Use the STAR method to explain the situation your actions and the successful outcome.,N/A,N/A,Focus on measurable impact and teamwork.
+
+Google,Behavioral,Teamwork,Medium,Describe a time you worked with a difficult teammate,Explain how you handled conflict within your team.,Discuss active listening empathy communication and collaboration to resolve the issue.,N/A,N/A,Never blame your teammate.
+
+Google,Behavioral,Conflict Resolution,Medium,Tell me about a disagreement you had with your manager,Describe a professional disagreement.,Explain how you respectfully presented your viewpoint listened to feedback and reached a positive outcome.,N/A,N/A,Show professionalism and respect.
+
+Google,Behavioral,Communication,Easy,Tell me about a time you made a mistake,Describe a mistake and what you learned from it.,Accept responsibility explain how you fixed the issue and describe what you learned.,N/A,N/A,Choose a real mistake with a positive ending.
+
+Google,Behavioral,Leadership,Medium,Describe a situation where you motivated your team,Explain how you inspired others to achieve a goal.,Discuss how you communicated the vision encouraged collaboration and achieved success.,N/A,N/A,Highlight leadership without sounding arrogant.
+
+Google,Behavioral,Teamwork,Medium,Tell me about a successful team project,Describe a project completed successfully by your team.,Explain your role challenges faced collaboration and final outcome using the STAR framework.,N/A,N/A,Emphasize your individual contribution.
+
+Google,Behavioral,Communication,Medium,Describe a time when you had to explain a technical concept to a non-technical person,Explain how you simplified a complex topic.,Use simple language real-world examples and confirm understanding.,N/A,N/A,Interviewers value communication skills.
+
+Google,Behavioral,Leadership,Hard,Tell me about a time you handled multiple deadlines,Describe how you managed competing priorities.,Explain how you prioritized tasks communicated expectations and successfully delivered results.,N/A,N/A,Show planning and time management.
+
+Google,Behavioral,Conflict Resolution,Medium,Describe a time when you received negative feedback,Explain how you responded to constructive criticism.,Show that you accepted feedback improved your performance and appreciated the learning opportunity.,N/A,N/A,Demonstrate a growth mindset.
+
+Google,Behavioral,Leadership,Hard,Tell me about a time you failed,Describe a significant failure in your career or academics.,Explain the failure what you learned how you improved and how the experience helped you grow.,N/A,N/A,Always finish with the lesson learned.
+
+Google,Non Technical,Aptitude,Easy,Train Crossing Problem,Solve a train crossing aptitude question.,Calculate speed distance and time using the appropriate formulas.,N/A,N/A,Write formulas before solving.
+
+Google,Non Technical,Aptitude,Easy,Profit and Loss,Calculate profit percentage from a business scenario.,Use Profit% = Profit/Cost Price × 100.,N/A,N/A,Practice shortcut calculations.
+
+Google,Non Technical,Aptitude,Medium,Probability Basics,Find the probability of selecting a specific object from a group.,Use favorable outcomes divided by total outcomes.,N/A,N/A,Reduce fractions whenever possible.
+
+Google,Non Technical,Aptitude,Medium,Time and Work,Calculate the time required for multiple people working together.,Use work efficiency concepts and LCM methods.,N/A,N/A,Understand individual work rates.
+
+Google,Non Technical,Reasoning,Easy,Blood Relations,Determine family relationships from given information.,Draw a family tree to simplify the problem.,N/A,N/A,Avoid solving mentally.
+
+Google,Non Technical,Reasoning,Medium,Seating Arrangement,Arrange people according to given conditions.,Use diagrams to eliminate incorrect possibilities.,N/A,N/A,Represent information visually.
+
+Google,Non Technical,Reasoning,Medium,Number Series,Find the missing number in a sequence.,Identify arithmetic geometric or mixed patterns.,N/A,N/A,Look for multiple possible patterns.
+
+Google,Non Technical,Verbal Ability,Easy,Synonyms and Antonyms,Choose the correct synonym or antonym of a word.,Understand vocabulary and contextual meaning.,N/A,N/A,Read regularly to improve vocabulary.
+
+Google,Non Technical,Communication,Easy,Email Writing,Write a professional email responding to a client.,Use a clear subject greeting concise message and professional closing.,N/A,N/A,Keep emails brief and polite.
+
+Google,Non Technical,Communication,Medium,Presentation Skills,How would you present a technical project to senior management?,Focus on business impact architecture key achievements challenges and results using simple language.,N/A,N/A,Avoid unnecessary technical jargon.

@@ -1,0 +1,100 @@
+Company,QuestionType,Topic,Difficulty,Title,Description,Answer,TimeComplexity,SpaceComplexity,InterviewTip
+Amazon,Technical,Arrays,Easy,Two Sum,Find two numbers whose sum equals the target.,Use a HashMap to store complements while traversing the array.,O(n),O(n),Explain brute force first then optimize using HashMap.
+
+Amazon,Technical,Arrays,Medium,Best Time to Buy and Sell Stock,Find the maximum profit from one stock transaction.,Track the minimum price seen so far and calculate maximum profit.,O(n),O(1),Mention why only one transaction is allowed.
+
+Amazon,Technical,Strings,Medium,Longest Substring Without Repeating Characters,Find the longest substring containing unique characters.,Use the sliding window technique with a HashMap to maintain unique characters.,O(n),O(n),Explain how the left pointer moves when duplicates are found.
+
+Amazon,Technical,Linked List,Easy,Reverse Linked List,Reverse a singly linked list.,Iteratively reverse node pointers using previous current and next references.,O(n),O(1),Mention both iterative and recursive approaches.
+
+Amazon,Technical,Trees,Medium,Lowest Common Ancestor of a Binary Tree,Find the lowest common ancestor of two nodes.,Use recursive DFS to locate nodes and return the common ancestor.,O(n),O(h),Explain recursive tree traversal clearly.
+
+Amazon,Technical,Graphs,Medium,Clone Graph,Create a deep copy of an undirected graph.,Use DFS or BFS with a HashMap to avoid cloning nodes multiple times.,O(V+E),O(V),Remember to handle cycles.
+
+Amazon,Technical,Heap,Medium,Top K Frequent Elements,Return the k most frequent elements.,Use a HashMap for frequencies and a Min Heap of size k.,O(n log k),O(n),Mention Bucket Sort as an alternative.
+
+Amazon,Technical,Stack,Medium,Daily Temperatures,Find the number of days until a warmer temperature.,Use a monotonic decreasing stack to store indices.,O(n),O(n),Explain why indices are stored instead of values.
+
+Amazon,Technical,Queue,Medium,Rotting Oranges,Determine the minimum time required to rot all oranges.,Use Multi-Source BFS by pushing all rotten oranges into a queue initially.,O(m×n),O(m×n),Mention level-order traversal.
+
+Amazon,Technical,Dynamic Programming,Medium,House Robber,Find the maximum money that can be robbed without robbing adjacent houses.,Use dynamic programming by storing the maximum profit at each step.,O(n),O(1),Explain the state transition before coding.
+
+Amazon,Technical,Binary Search,Medium,Search in Rotated Sorted Array,Search a target in a rotated sorted array.,Use modified binary search by determining which half is sorted in each iteration.,O(log n),O(1),Clearly explain how to identify the sorted half.
+
+Amazon,Technical,Greedy,Medium,Jump Game,Determine whether you can reach the last index.,Track the farthest reachable index while traversing the array.,O(n),O(1),Explain why greedy works instead of dynamic programming.
+
+Amazon,Technical,Hashing,Medium,LRU Cache,Design an LRU Cache supporting O(1) operations.,Use a HashMap with a Doubly Linked List to maintain recently used items.,O(1),O(capacity),Mention why LinkedHashMap works in Java.
+
+Amazon,Technical,SQL,Medium,Second Highest Salary,Write a query to find the second highest salary.,Use ORDER BY with LIMIT OFFSET or a subquery using MAX().,O(n log n),O(1),Mention handling duplicate salaries.
+
+Amazon,Technical,DBMS,Medium,Database Normalization,Explain normalization and its types.,Discuss 1NF 2NF 3NF BCNF and how they reduce redundancy.,N/A,N/A,Give one practical database example.
+
+Amazon,Technical,OOPS,Medium,SOLID Principles,Explain SOLID principles with examples.,Describe each principle with a real-world software example.,N/A,N/A,Focus on maintainable and scalable code.
+
+Amazon,Technical,System Design,Hard,Design Amazon Locker,Design a scalable Amazon Locker system.,Discuss APIs database locker allocation QR verification notifications and scalability.,N/A,N/A,Think about availability and concurrent users.
+
+Amazon,Technical,System Design,Hard,Design an E-Commerce Website,Design an e-commerce platform similar to Amazon.,Explain product catalog inventory search payments orders caching and load balancing.,N/A,N/A,Always discuss scalability and fault tolerance.
+
+Amazon,Technical,Computer Networks,Medium,TCP vs UDP,Explain the differences between TCP and UDP.,Compare reliability speed packet ordering congestion control and use cases.,N/A,N/A,Give real-world examples like HTTP and video streaming.
+
+Amazon,Technical,REST API,Medium,REST API Design,How would you design a REST API for an online shopping application?,Explain REST principles HTTP methods authentication pagination status codes and versioning.,N/A,N/A,Always mention proper status codes and security.
+
+Amazon,HR,HR,Easy,Tell me about yourself,Introduce yourself professionally.,Start with your education then discuss your internship projects technical skills achievements and explain why you want to join Amazon.,N/A,N/A,Keep your answer under two minutes and focus on relevant experience.
+
+Amazon,HR,HR,Easy,Why Amazon?,Explain why you want to join Amazon.,Discuss Amazon's customer obsession innovation culture global impact and opportunities for learning and growth.,N/A,N/A,Never mention salary as the primary reason.
+
+Amazon,HR,HR,Easy,Why should we hire you?,Explain why you are the right candidate.,Highlight your technical skills problem solving ability internship experience adaptability and willingness to learn.,N/A,N/A,Support your answer with examples.
+
+Amazon,HR,HR,Easy,What are your strengths?,Describe your strengths.,Discuss analytical thinking teamwork adaptability communication and problem solving with examples.,N/A,N/A,Always justify each strength.
+
+Amazon,HR,HR,Easy,What is your biggest weakness?,Discuss a genuine weakness.,Mention a real weakness explain how you are improving it and what you learned.,N/A,N/A,Never say you have no weaknesses.
+
+Amazon,HR,Leadership,Medium,Describe a situation where you showed ownership,Explain how you took ownership of a task.,Describe a project where you accepted responsibility beyond your assigned work and delivered successful results.,N/A,N/A,Ownership is one of Amazon's Leadership Principles.
+
+Amazon,HR,Communication,Medium,How do you handle constructive criticism?,Explain your response to feedback.,Describe how you accept feedback improve yourself and continuously learn.,N/A,N/A,Show a growth mindset.
+
+Amazon,HR,HR,Medium,Where do you see yourself in five years?,Describe your future goals.,Discuss becoming a skilled software engineer taking ownership of impactful products and mentoring others.,N/A,N/A,Align your goals with Amazon's growth opportunities.
+
+Amazon,HR,Communication,Easy,Describe yourself in three words,Choose three words describing yourself.,Select qualities like Curious Responsible and Adaptable with supporting examples.,N/A,N/A,Keep the explanation concise.
+
+Amazon,HR,HR,Medium,How do you prioritize your work?,Explain how you manage multiple tasks.,Discuss prioritization using deadlines business impact and planning tools while communicating with stakeholders.,N/A,N/A,Amazon values execution and ownership.
+
+Amazon,Behavioral,Leadership,Medium,Tell me about a time you demonstrated Customer Obsession,Describe a situation where customer satisfaction was your priority.,Use the STAR method to explain how your actions improved customer experience.,N/A,N/A,Customer Obsession is Amazon's most important Leadership Principle.
+
+Amazon,Behavioral,Leadership,Medium,Describe a time you took complete ownership of a project,Explain how you accepted responsibility.,Describe the challenge your actions and measurable results using the STAR framework.,N/A,N/A,Show accountability.
+
+Amazon,Behavioral,Leadership,Medium,Tell me about a time you failed,Describe a failure and what you learned.,Accept responsibility explain improvements and focus on lessons learned.,N/A,N/A,Never blame others.
+
+Amazon,Behavioral,Leadership,Medium,Describe a difficult decision you had to make,Explain how you handled a challenging decision.,Describe how you analyzed options evaluated risks and reached the best outcome.,N/A,N/A,Show logical thinking.
+
+Amazon,Behavioral,Teamwork,Medium,Describe a conflict with a teammate,Explain how you resolved disagreement.,Discuss active listening communication and collaborative problem solving.,N/A,N/A,Never criticize teammates.
+
+Amazon,Behavioral,Leadership,Hard,Tell me about a time you handled multiple deadlines,Describe how you managed competing priorities.,Explain task prioritization communication planning and successful execution.,N/A,N/A,Amazon values Deliver Results.
+
+Amazon,Behavioral,Communication,Medium,Describe a time you had to convince someone to accept your idea,Explain how you influenced others.,Use data logical reasoning and clear communication to gain support.,N/A,N/A,Support arguments with facts.
+
+Amazon,Behavioral,Leadership,Medium,Describe a time you improved a process,Explain how you identified and solved an inefficiency.,Describe the improvement implementation and measurable impact.,N/A,N/A,Demonstrate continuous improvement.
+
+Amazon,Behavioral,Leadership,Medium,Tell me about a time you learned a new technology quickly,Explain how you adapted to change.,Describe your learning strategy implementation and project outcome.,N/A,N/A,Amazon values Learn and Be Curious.
+
+Amazon,Behavioral,Leadership,Hard,Describe a situation where you delivered results under pressure,Explain how you handled pressure.,Describe planning execution teamwork and successful delivery using the STAR method.,N/A,N/A,Focus on measurable outcomes.
+
+Amazon,Non Technical,Aptitude,Easy,Profit and Loss,Calculate profit percentage in a business scenario.,Apply the Profit Percentage formula and verify calculations carefully.,N/A,N/A,Write formulas before solving.
+
+Amazon,Non Technical,Aptitude,Easy,Time Speed and Distance,Solve a train crossing problem.,Use distance speed and time relationships to calculate the answer.,N/A,N/A,Maintain consistent units.
+
+Amazon,Non Technical,Aptitude,Medium,Probability,Calculate the probability of an event.,Use favorable outcomes divided by total outcomes.,N/A,N/A,Simplify fractions wherever possible.
+
+Amazon,Non Technical,Aptitude,Medium,Time and Work,Determine the time required to complete work together.,Use work efficiency concepts and LCM methods.,N/A,N/A,Calculate individual efficiencies first.
+
+Amazon,Non Technical,Reasoning,Easy,Blood Relations,Determine family relationships from given information.,Draw a family tree to simplify the relationships.,N/A,N/A,Avoid solving mentally.
+
+Amazon,Non Technical,Reasoning,Medium,Seating Arrangement,Solve a circular seating arrangement problem.,Represent positions visually and eliminate invalid possibilities.,N/A,N/A,Practice diagram-based reasoning.
+
+Amazon,Non Technical,Reasoning,Medium,Number Series,Identify the missing number in a sequence.,Recognize arithmetic geometric or mixed patterns.,N/A,N/A,Check multiple patterns before answering.
+
+Amazon,Non Technical,Verbal Ability,Easy,Synonyms and Antonyms,Choose the correct synonym or antonym.,Use vocabulary knowledge and contextual meaning.,N/A,N/A,Read regularly to improve vocabulary.
+
+Amazon,Non Technical,Communication,Easy,Professional Email Writing,Write a professional email responding to a customer.,Use a clear subject greeting concise content and professional closing.,N/A,N/A,Maintain a polite tone.
+
+Amazon,Non Technical,Communication,Medium,Presentation Skills,Present a technical project to business stakeholders.,Focus on business impact achievements architecture and future improvements using simple language.,N/A,N/A,Avoid unnecessary technical jargon.
