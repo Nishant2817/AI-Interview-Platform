@@ -1,10 +1,13 @@
+import os
 from celery import Celery
+
+REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
 celery_app = Celery(
     "prepforge",
-    broker="redis://localhost:6379/0",
-    backend="redis://localhost:6379/0",
-    include=["app.tasks.ai_tasks"]   # 👈 Explicit import
+    broker=REDIS_URL,
+    backend=REDIS_URL,
+    include=["app.tasks.ai_tasks"]
 )
 
 celery_app.conf.update(

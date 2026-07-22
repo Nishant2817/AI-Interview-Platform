@@ -1,0 +1,131 @@
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: ai-backend
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - ./backend/.env.docker
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+    networks:
+      - prepforge-network
+
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:17
+
+    container_name: ai-postgres
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Nishant123
+      POSTGRES_DB: ai_interview_db
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ai_interview_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    networks:
+      - prepforge-network
+
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+
+    container_name: ai-redis
+
+    ports:
+      - "6379:6379"
+
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    networks:
+      - prepforge-network
+
+    restart: unless-stopped
+
+  celery:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: ai-celery
+
+    command: celery -A app.celery_app.celery_app worker --pool=solo --loglevel=info
+
+    env_file:
+      - ./backend/.env.docker
+
+    depends_on:
+      backend:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+
+    networks:
+      - prepforge-network
+
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    container_name: ai-frontend
+
+    ports:
+      - "3000:80"
+
+    depends_on:
+      backend: 
+        condition: service_healthy
+
+    networks:
+      - prepforge-network
+
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  prepforge-network:
+    driver: bridge

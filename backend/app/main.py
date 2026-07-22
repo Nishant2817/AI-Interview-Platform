@@ -21,7 +21,10 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173"
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",     
+        "http://127.0.0.1:5173",
+        "http://localhost:5173" 
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -46,7 +49,17 @@ app.include_router(ai_interview.router)
 def root():
     return {"message": "Backend Running"}
 
+@app.get("/health")
+async def health():
+    return {
+        "status": "healthy",
+        "service": "PrepForge Backend",
+        "version": "1.0.0"
+    }
+
 app.add_middleware(
     SessionMiddleware,
     secret_key="[ENCRYPTION_KEY]"
 )
+
+

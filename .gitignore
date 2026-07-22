@@ -9,7 +9,7 @@ backend/env/
 backend/.env.local
 
 # Python cache
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.pyo
@@ -24,6 +24,13 @@ build/
 # Environment variables
 .env
 *.env
+.env.*
+*.env.*
+
+# Keep example files
+!.env.example
+!backend/.env.example
+
 
 # Database
 *.db
@@ -101,3 +108,6 @@ desktop.ini
 *.bak
 *.tmp
 *.swp
+
+# Local Docker overrides
+docker-compose.override.yml
