@@ -1,4 +1,4 @@
-# 🚀 PrepForge AI – AI Interview Preparation Platform
+# 🚀 PrepForge – AI Interview Preparation Platform
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
@@ -12,7 +12,7 @@
 
 ## 🌟 Overview
 
-PrepForge AI is a modern AI-powered interview preparation platform that helps students and professionals prepare for technical interviews using Artificial Intelligence.
+PrepForge AI is a modern AI-powered interview preparation platform that helps students and professionals prepare for technical and Non-technical interviews using Artificial Intelligence.
 
 The platform provides secure authentication, resume management, AI-generated interview questions, intelligent interview feedback, and background task processing using Celery and Redis.
 
@@ -276,12 +276,9 @@ Suggested screenshots:
 
 - Video Interview Module
 - Coding Interview Support
-- Interview History
 - Performance Analytics
-- AI Resume Suggestions
 - Email Notifications
 - Leaderboard
-- Admin Dashboard
 
 ---
 
