@@ -18,9 +18,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 import os
 
+from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
+
 app = FastAPI()
 
-
+# Trust proxy headers so HTTP -> HTTPS redirects work properly on Railway/Render
+app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
 # CORS Configuration — origins built dynamically from env vars
 
 _base_origins = [

@@ -58,7 +58,7 @@ def add_bookmark(
     return {
         "message": "Question bookmarked successfully"
     }
-@router.get("/")
+@router.get("")
 def get_bookmarks(
     current_user=Depends(get_current_user),
     db: Session = Depends(get_db)

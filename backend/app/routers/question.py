@@ -31,7 +31,7 @@ def get_db():
 
 
 @router.post(
-    "/",
+    "",
     response_model=QuestionResponse
 )
 def create_question(
@@ -58,7 +58,7 @@ def create_question(
     return new_question
 
 @router.get(
-    "/",
+    "",
     response_model=list[QuestionResponse]
 )
 def get_questions(

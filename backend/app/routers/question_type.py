@@ -9,7 +9,7 @@ router = APIRouter(
     tags=["Question Types"]
 )
 
-@router.get("/")
+@router.get("")
 def get_question_types(
     db: Session = Depends(get_db)
 ):

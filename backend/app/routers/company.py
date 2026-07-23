@@ -75,7 +75,7 @@ def get_company_questions(
         for q in questions
     ]
 
-@router.get("/")
+@router.get("")
 def get_companies(
     db: Session = Depends(get_db)
 ):

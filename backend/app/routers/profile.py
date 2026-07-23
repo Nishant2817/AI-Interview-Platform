@@ -21,7 +21,7 @@ def get_db():
         db.close()
 
 
-@router.post("/", response_model=ProfileResponse)
+@router.post("", response_model=ProfileResponse)
 def create_profile(
     profile: ProfileCreate,
     db: Session = Depends(get_db)
