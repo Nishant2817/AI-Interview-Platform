@@ -21,20 +21,31 @@ import os
 app = FastAPI()
 
 
-# CORS Configuration
+# CORS Configuration — origins built dynamically from env vars
+
+_base_origins = [
+    # Local Development
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+# Add production frontend URL from environment variable (set this on Railway)
+_frontend_url = os.getenv("FRONTEND_URL", "").strip().rstrip("/")
+if _frontend_url:
+    _base_origins.append(_frontend_url)
+
+# Fallback: keep the known Vercel URL in case env var isn't set yet
+_known_vercel = "https://ai-interview-platform-olive-phi.vercel.app"
+if _known_vercel not in _base_origins:
+    _base_origins.append(_known_vercel)
+
+print(f"[CORS] Allowed origins: {_base_origins}")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        # Local Development
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-
-        # Vercel Frontend 
-        "https://ai-interview-platform-olive-phi.vercel.app",
-    ],
+    allow_origins=_base_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
