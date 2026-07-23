@@ -1,13 +1,9 @@
 # pyrefly: ignore [missing-import]
-from fastapi import FastAPI 
+from fastapi import FastAPI
 from app.routers.auth import router as auth_router
 from app.routers.profile import router as profile_router
 from app.routers.upload import router as upload_router
-from app.routers import admin
 from app.routers.admin import router as admin_router
-# pyrefly: ignore [missing-import]
-from starlette.middleware.sessions import SessionMiddleware
-from fastapi.middleware.cors import CORSMiddleware
 from app.routers.question import router as question_router
 from app.routers.question_type import router as question_type_router
 from app.routers.bookmark import router as bookmark_router
@@ -16,20 +12,44 @@ from app.routers.resume_analysis import router as resume_analysis_router
 from app.routers.dashboard import router as dashboard_router
 from app.routers import ai_interview
 
+# pyrefly: ignore [missing-import]
+from starlette.middleware.sessions import SessionMiddleware
+from fastapi.middleware.cors import CORSMiddleware
+
+import os
+
 app = FastAPI()
+
+
+# CORS Configuration
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        # Local Development
         "http://localhost:3000",
-        "http://127.0.0.1:3000",     
+        "http://127.0.0.1:3000",
+        "http://localhost:5173",
         "http://127.0.0.1:5173",
-        "http://localhost:5173" 
+
+        # Vercel Frontend 
+        "https://vercel.com/nishant2817s-projects/ai-interview-platform",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# Session Middleware
+
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=os.getenv("SECRET_KEY", "fallback_secret_key")
+)
+
+
+# Routers
 
 app.include_router(auth_router)
 app.include_router(profile_router)
@@ -44,11 +64,13 @@ app.include_router(dashboard_router)
 app.include_router(ai_interview.router)
 
 
+# Root Endpoint
 
 @app.get("/")
 def root():
     return {"message": "Backend Running"}
 
+# Health Check
 @app.get("/health")
 async def health():
     return {
@@ -56,10 +78,3 @@ async def health():
         "service": "PrepForge Backend",
         "version": "1.0.0"
     }
-
-app.add_middleware(
-    SessionMiddleware,
-    secret_key="[ENCRYPTION_KEY]"
-)
-
-
