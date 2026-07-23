@@ -1,9 +1,26 @@
 #!/bin/sh
 
-echo "Waiting for PostgreSQL..."
+echo "Starting FastAPI..."
 
-until pg_isready -h postgres -p 5432 -U postgres
+# Parse DB host/port from DATABASE_URL if available, otherwise use Docker defaults
+if [ -n "$DATABASE_URL" ]; then
+    # Extract host and port from DATABASE_URL (format: postgresql://user:pass@host:port/db)
+    DB_HOST=$(echo "$DATABASE_URL" | sed -e 's|.*@||' -e 's|/.*||' -e 's|:.*||')
+    DB_PORT=$(echo "$DATABASE_URL" | sed -e 's|.*@||' -e 's|/.*||' -e 's|.*:||')
+    DB_USER=$(echo "$DATABASE_URL" | sed -e 's|.*://||' -e 's|:.*||')
+    # Use defaults if parsing fails
+    DB_PORT=${DB_PORT:-5432}
+else
+    DB_HOST="postgres"
+    DB_PORT="5432"
+    DB_USER="postgres"
+fi
+
+echo "Waiting for PostgreSQL at $DB_HOST:$DB_PORT..."
+
+until pg_isready -h "$DB_HOST" -p "$DB_PORT"
 do
+  echo "Waiting..."
   sleep 2
 done
 
