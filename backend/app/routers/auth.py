@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from app.schemas.auth import ForgotPasswordRequest, ResetPasswordRequest, LoginRequest
 from app.core.jwt import create_reset_token, verify_reset_token, create_access_token, create_refresh_token
 from app.services.email import send_reset_email
+import os
 
 from app.models.user import User
 from app.schemas.user import UserCreate, UserResponse
@@ -105,7 +106,8 @@ def get_profile(
 @router.get("/google/login")
 async def google_login(request: Request):
 
-    redirect_uri = "http://127.0.0.1:8000/auth/google/callback"
+    backend_url = os.getenv("BACKEND_URL", "http://127.0.0.1:8000")
+    redirect_uri = f"{backend_url}/auth/google/callback"
 
     print("Redirect URI:", redirect_uri)
 
@@ -153,9 +155,10 @@ async def google_callback(
         }
     )
 
+    frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")
     return RedirectResponse(
-    url=f"http://localhost:5173/google-success?token={access_token}"
-)  
+        url=f"{frontend_url}/google-success?token={access_token}"
+    )
 
 @router.get("/test-email")
 async def test_email():
@@ -185,9 +188,8 @@ async def forgot_password(
     )
     print("Token generated")
 
-    reset_link = (
-        f"http://localhost:5173/reset-password?token={token}"
-    )
+    frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")
+    reset_link = f"{frontend_url}/reset-password?token={token}"
     print("Reset link:", reset_link)
 
     await send_reset_email(

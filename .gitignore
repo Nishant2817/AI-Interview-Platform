@@ -30,6 +30,8 @@ build/
 # Keep example files
 !.env.example
 !backend/.env.example
+!frontend/.env.production.example
+
 
 
 # Database
