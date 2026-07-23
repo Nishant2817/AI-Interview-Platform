@@ -15,8 +15,7 @@ RUN apt-get update && apt-get install -y \
     gcc \
     libpq-dev \
     postgresql-client \
-    curl \
-    && apt-get clean \
+    curl \ 
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first
