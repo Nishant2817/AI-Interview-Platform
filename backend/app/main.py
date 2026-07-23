@@ -33,7 +33,7 @@ app.add_middleware(
         "http://127.0.0.1:5173",
 
         # Vercel Frontend 
-        "https://vercel.com/nishant2817s-projects/ai-interview-platform",
+        "https://ai-interview-platform-olive-phi.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
