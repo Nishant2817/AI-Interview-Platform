@@ -256,29 +256,16 @@ backend/.env.example
 
 ---
 
-## 📸 Screenshots
+## 📸 Application Screenshots
 
-Add screenshots here after deployment.
+| Home                          | Login                           |
 
-Suggested screenshots:
+|-------------------------------|----------------------------------|
+| ![Home](screenshots/home.png) | ![Login](screenshots/login.png) |
 
-- Landing Page
-- Login Page
-- Register Page
-- Dashboard
-- Resume Upload
-- AI Interview
-- Profile Page
-
----
-
-## 🚀 Future Improvements
-
-- Video Interview Module
-- Coding Interview Support
-- Performance Analytics
-- Email Notifications
-- Leaderboard
+| Dashboard                               | How It Works                              |
+|-----------------------------------------|-------------------------------------------|
+| ![Dashboard](screenshots/dashboard.png) | ![HowItWorks](screenshots/howitworks.png) |
 
 ---
 
