@@ -302,6 +302,6 @@ Nishant Pandey (FULL STACK DEVELOPER)
 
 GitHub: [Nishant2817](https://github.com/Nishant2817)
 
-LinkedIn: [nishant-pandey-4a2a1b2a1](https://www.linkedin.com/in/nishant-pandey-4a2a1b2a1/)
+LinkedIn: [nishant-pandey-4a2a1b2a1](https://www.linkedin.com/in/nishant-pandey-2b6a062b6/)
 
 Email: [nishantpandey1838@gmail.com](mailto:nishantpandey1838@gmail.com)
